@@ -110,18 +110,7 @@ public class AlgorithmLogic {
 				System.out.print(j + " ");
 		}
 	}
-
 	
-//	// is prime//
-//	public static boolean isPrime(int n) {
-//		for (int i = 2; i < n / 2; i++) {
-//			if (i % n == 0) {
-//				return false;
-//			}
-//		}
-//		return true;
-//	}
-
 	// prime pallindrom //
 	public static void primePallindrome() {
 		boolean b;
