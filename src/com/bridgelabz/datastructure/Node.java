@@ -1,13 +1,25 @@
 package com.bridgelabz.datastructure;
-class Node {
-
-	public Node(Object data) {
-		super();
-		this.data = data;
-		this.next = null;
+public class Node<E>
+{
+	public String data1;
+	public int data;
+	public Node nextNode;
+	
+	//constructor
+	public Node()
+	{
+		this.nextNode=null;
 	}
 
-
-	Object data;
-	Node next;
+	public void setData(String data1)
+	{
+		this.data1=data1;
+		nextNode=null;
+	}
+	
+	public void setData(int data)
+	{
+		this.data=data;
+		nextNode=null;
+	}
 }
