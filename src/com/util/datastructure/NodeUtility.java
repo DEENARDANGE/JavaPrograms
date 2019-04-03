@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure;
+package com.util.datastructure;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -65,7 +65,8 @@ public class NodeUtility {
 			    stringArray = intFile.split(","); 
 			    intArray = new int[stringArray.length];
 
-			    for(int i=0; i <intArray.length;i++)
+			    for(int 
+			    		i=0; i <intArray.length;i++)
 			    {
 			        try
 			        {

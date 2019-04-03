@@ -1,17 +1,10 @@
 package com.bridgelabz.datastructure;
-
 import com.bridgelabz.util.AlgorithmLogic;
-import com.util.datastructure.NodeDeque;
+import com.util.datastructure.Node;
 
 public class PalindromeChecker {
-
-	/**
-	 * @param args
-	 * @return
-	 */
 	public static void main(String[] args) {
-
-		NodeDeque<Character> node = new NodeDeque<Character>();
+		Node<Character> node = new Node<Character>();
 
 		System.out.println("Enter a String: ");
 		String input = AlgorithmLogic.readString();
@@ -19,7 +12,7 @@ public class PalindromeChecker {
 		// adding each character to the rear of the dequeue
 		for (int i = 0; i < input.length(); i++) {
 			char character = input.charAt(i);
-			node.addRear(character);
+		    node.addRear(character);
 		}
 		int flag = 0;
 

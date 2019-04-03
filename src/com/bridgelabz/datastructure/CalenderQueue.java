@@ -1,4 +1,8 @@
 package com.bridgelabz.datastructure;
+
+import com.util.datastructure.DataStructureLogic;
+import com.util.datastructure.QueueLinkedList;
+
 public class CalenderQueue {
 			/*
 			* The main function is to take the input from the user 
@@ -10,12 +14,12 @@ public class CalenderQueue {
 				String[] months = { "", "January", "February", "March", "April", "May", "June", "July", "August", "September",
 						"October", "November", "December" };
 				int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-				if (month == 2 && DataStructurePrograms.isLeapYear(year)) {
+				if (month == 2 && DataStructureLogic.isLeapYear(year)) {
 					days[month] = 29;
 				}
 				System.out.println("\t\t " + months[month] + " " + year);
 				System.out.println("Sunday Monday Tuesday Wednesday Thursday Friday Saturday");
-				int dayofWeek = DataStructurePrograms.dayWeek(month, 1, year);
+				int dayofWeek = DataStructureLogic.day(month, 1, year);
 				QueueLinkedList<QueueLinkedList<Integer>> queue=new QueueLinkedList<QueueLinkedList<Integer>>();
 				QueueLinkedList<Integer> refqueue=new QueueLinkedList<Integer>();
 				

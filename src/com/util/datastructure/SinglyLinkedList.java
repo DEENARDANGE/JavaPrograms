@@ -1,7 +1,8 @@
 package com.util.datastructure;
+
 public class SinglyLinkedList<T> {
-	private Node1<T> head;
-	private Node1<T> tail;
+	private Node<T> head;
+	private Node<T> tail;
 	private int size = 0;
 	private String key;
 	static String[] str = new String[100];
@@ -11,8 +12,8 @@ public class SinglyLinkedList<T> {
 		return head == null;
 	}
 
-	public String addElement(String key) {
-		Node1<T> nd = new Node1<T>();
+	public String addElement(T key) {
+		Node<T> nd = new Node<T>();
 		nd.setValue(key);
 		size++;
 
@@ -33,10 +34,9 @@ public class SinglyLinkedList<T> {
 		return null;
 	}
 
-	
 	public void traverse() {
 
-		Node1<T> tmp = head;
+		Node<T> tmp = head;
 		while (true) {
 			if (tmp == null) {
 				break;
@@ -47,9 +47,20 @@ public class SinglyLinkedList<T> {
 
 	}
 
+	@Override
+	public String toString() {
+		Node<T> temp = head;
+		String elements = "";
+		while (temp.getNextRef() != null) {
+			elements += " " + temp.getValue() + " ";
+			temp = temp.getNextRef();
+		}
+		return elements + temp.getValue();
+	}
+
 	public void get() {
 
-		Node1<T> tmp = head;
+		Node<T> tmp = head;
 		int k = 0;
 		while (true) {
 			if (tmp == null) {
@@ -62,8 +73,9 @@ public class SinglyLinkedList<T> {
 	}
 
 	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
-		Node1 current = head;
+		Node<T> current = head;
 		boolean status = false;
+
 		for (int i = 0; i < str.length - 1; i++) {
 			if (str[i] != null && str[i].equals(key)) {
 				status = true;
@@ -78,11 +90,36 @@ public class SinglyLinkedList<T> {
 		}
 		if (status) {
 			System.out.println("Element is present in the list ");
+			
 		} else {
 			System.out.println("Element is not present in the list ");
 			newList.addElement(key);
 		}
 
-		return newList;
+		return (SinglyLinkedList<T>)newList;
 	}
-}
+
+		
+
+			public static <T extends Comparable<T>> T[] inserstionSort(T[] array) {
+				for (int i = 1; i < array.length; i++) {
+					for (int j = i; j > 0; j--) {
+						if (array[j].compareTo(array[j - 1]) < 0) {
+							T temp = array[j];
+							array[j] = array[j - 1];
+							array[j - 1] = temp;
+						} else
+							break;
+					}
+				}
+				for (int k = 0; k < array.length; k++) {
+					System.out.println(array[k]);
+				}
+				return array;
+			}
+
+			
+		
+
+		
+	}

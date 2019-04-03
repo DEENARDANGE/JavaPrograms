@@ -1,4 +1,4 @@
-package com.bridgelabz.datastructure;
+package com.util.datastructure;
 public class OrderedLinkedList
 {
     Node start;
@@ -6,7 +6,7 @@ public class OrderedLinkedList
     Utility u1=new Utility();
 
     // get data From a file
-    void getDataFromFile()
+   public void getDataFromFile()
     {
         int[] retArry =nu.integerFileReader();
         int[] sortArray =nu.sort(retArry);
@@ -109,7 +109,7 @@ public class OrderedLinkedList
     }
 
     // removeWord From a Linked lIst
-    void removeData(int count)
+    public void removeData(int count)
     {
         Node temp = start;
         if(count==1)
@@ -128,14 +128,5 @@ public class OrderedLinkedList
         System.out.println("After Deleting LIst is ");
         display();
         }
-    }
-
-    public static void main(String[] args)
-    {
-        OrderedLinkedList obj = new OrderedLinkedList();
-        obj.getDataFromFile();
-        obj.display();
-        obj.size();
-       	obj.searchData();
     }
 }
