@@ -9,6 +9,7 @@ public class Banking {
 	public static void main(String[] args) {
 		int curBalance = 10000;
 		double amount = 0;
+		@SuppressWarnings("unused")
 		boolean notDone = true;
 		Queue<Integer> d = new Queue<Integer>();
 		while (d.capacity > 0) {

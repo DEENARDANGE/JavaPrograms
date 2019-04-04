@@ -11,10 +11,12 @@ public class NodeUtility {
 		String[] stringArray;
 	    int[] intArray;
 
-		public Node readFile(Node start)
+		@SuppressWarnings("rawtypes")
+		public Node readFile(@SuppressWarnings("rawtypes") Node start)
 		{
 			try
 			{
+				@SuppressWarnings("resource")
 				FileInputStream fis = new FileInputStream("C:\\Users\\lenovo\\Desktop\\order\\int.txt");
 				char ch;
 				String word3="";

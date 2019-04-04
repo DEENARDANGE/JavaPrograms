@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import com.bridgelabz.util.AlgorithmLogic;
 public class OderedList {
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "static-access" })
 	public static void main(String[] args) throws Exception {
 		com.util.datastructure.SinglyLinkedList<String> list = new com.util.datastructure.SinglyLinkedList<String>();
 		File file = new File("C:\\Users\\lenovo\\Desktop\\order\\int.txt");

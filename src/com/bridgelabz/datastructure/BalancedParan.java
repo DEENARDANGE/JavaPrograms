@@ -1,5 +1,4 @@
 package com.bridgelabz.datastructure;
-
 import com.bridgelabz.util.AlgorithmLogic;
 import com.util.datastructure.DataStructureLogic;
 public class BalancedParan {

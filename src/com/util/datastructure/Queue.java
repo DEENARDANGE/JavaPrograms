@@ -47,11 +47,11 @@ public class Queue<T> {
 		queue = newar;
 	}
 
-	boolean isEmpty() {
+	public boolean isEmpty() {
 		return size == 0;
 	}
 
-	int size() {
+	public int size() {
 		return size;
 	}
 
