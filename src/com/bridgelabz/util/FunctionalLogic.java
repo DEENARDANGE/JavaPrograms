@@ -1,5 +1,8 @@
 package com.bridgelabz.util;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -469,4 +472,66 @@ public class FunctionalLogic {
 
 	}
 
-}
+		/**
+		 * @param str string whose permutations are to be found
+		 * @param start the lower bound 
+		 * @param end the upper bound
+		 */
+		public static List<String> recursion(String str, int start, int end,List<String> array) {
+			
+			if (start == end) {
+				array.add(str);
+			} else {
+				for (int i = start; i < end; i++) {
+					str = swap(str, start, i);
+					recursion(str, (start + 1), end,array);
+				}
+			}
+			return array;
+		}
+		/**
+		 * @param str the string to be sorted
+		 * @param i the index
+		 * @param j another index
+		 * @return string whose characters are swapped
+		 */
+		public static String swap(String str, int i, int j) {
+			char temp;
+			char[] ch = str.toCharArray();
+			temp = ch[i];
+			ch[i] = ch[j];
+			ch[j] = temp;
+			return String.valueOf(ch);
+
+		}
+
+		/**
+		 * @param s the string whose permutation is to be found
+		 */
+		public static List<String> iteration(String str) {
+			List<String> array = new ArrayList<>();
+			array.add(String.valueOf(str.charAt(0)));
+			for (int i = 1; i < str.length(); i++) {
+				for (int j = array.size() - 1; j >= 0; j--) {
+					String s = array.remove(j);
+					for (int k = 0; k <= s.length(); k++) {
+						array.add(s.substring(0, k) + str.charAt(i) + s.substring(k));
+					}
+				}
+			}
+			return array;
+		}
+		
+		/**
+		 * @param array the array which is to be sorted
+		 * @return array list that contains sorted strings
+		 */ 
+		public static List<String> listSort(List<String> array)
+		{
+			Collections.sort(array);
+			return array;
+		}	
+	
+		
+
+	}

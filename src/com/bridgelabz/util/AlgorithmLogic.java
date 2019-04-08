@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AlgorithmLogic {
 	static Scanner Scanner = new Scanner(System.in);
@@ -21,150 +24,149 @@ public class AlgorithmLogic {
 	public static String readString() {
 		return Scanner.next();
 	}
-
-	// anagram//
-	public static boolean isAnagram(char[] ch1, char[] ch2) {
-		int length1 = ch1.length;
-		int length2 = ch2.length;
-
-		if (length1 != length2)
+//***************************Anagram*************************//
+	/**
+	 *Static function to check if the two strings are anagram or not.
+	 * @param <T>
+	 * 
+	 * @param str1 the string to be checked for anagram
+	 * @param str2 the string to be checked for anagram
+	 * @return true if the strings are anagram else false
+	 */
+	public static boolean isAnagram(String str1,String str2) {
+		char[] array1=str1.toCharArray();
+		char temp1,temp2;
+		char[] array2=str2.toCharArray();
+		int len1=str1.length();
+		int len2=str2.length();
+		if(len1!=len2) {
 			return false;
-		Arrays.sort(ch1);
-		Arrays.sort(ch2);
-		for (int i = 0; i < length1; i++)
-			if (ch1[i] != ch2[i])
+		}
+		else{
+			for(int i=0;i<len1;i++){
+				for(int j=0;j<len1-1;j++){
+					if(array1[j]>array1[j+1]){
+						temp1=array1[j];
+						array1[j]=array1[j+1];
+						array1[j+1]=temp1;
+					}
+				}
+			}
+			for(int i=0;i<len2;i++){
+				for(int j=0;j<len2-1;j++){
+					if(array2[j]>array2[j+1]){
+						temp2=array2[j];
+						array2[j]=array2[j+1];
+						array2[j+1]=temp2;
+					}
+				}
+			}
+			str1=String.valueOf(array1);
+			str2=String.valueOf(array2);
+			if(str1.equals(str2))
+				return true;
+			else
 				return false;
-
-		return true;
-
+		}	
 	}
-
-	// count char //
-
-	public static int[] count(String s) {
-		s = s.toLowerCase();
-		int[] c = new int[25];
-		for (int i = 0; i < s.length(); i++) {
-			c[s.charAt(i) - 97]++;
-		}
-		return c;
-	}
-
-	// count int //
-	public static int[] count(int n) {
-		int[] count = new int[10];
-		int temp = n;
-		while (temp != 0) {
-			int r = temp % 10;
-			count[r]++;
-			temp = temp / 10;
-		}
-		return count;
-	}
-
-	// anagram //
-	public static boolean anagram(int n1, int n2)
-
-	{
-		int[] n1count = count(n1);
-		int[] n2count = count(n2);
-		for (int i = 0; i < n2count.length; i++) {
-			if (n1count[i] != n2count[i]) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	// prime num //
-	public static void primenum() {
-		String primeNumbers = "";
-		for (int i = 0; i <= 1000; i++) {
-			int counter = 0;
-			for (int j = i; j >= 1; j--) {
-				if (i % j == 0) {
-					counter = counter + 1;
-				}
-			}
-			if (counter == 2) {
-				primeNumbers = primeNumbers + i + " ";
-			}
-		}
-
-		System.out.println(primeNumbers);
-	}
-
-
-	// prime //
-	public static void prime() {
-		boolean b;
-		for (int j = 2; j <= 1000; j++) {
-			b = true;
-			for (int i = 2; i < j / 2; i++) {
-				if (j % i == 0) {
-					b = false;
+	//********************************prime number*************************//
+	/**
+	 *static function to print the prime numbers for the given range
+	 * 
+	 * @param m the integer that represents the lower bound of the range
+	 * @param n the integer that represents the upper bound of the range
+	 * @return list of integers that are prime numbers between the range
+	 */
+	public static List<Integer> primeNumbers(int start,int end) {
+		List<Integer> lst=new ArrayList<Integer>();
+		int flag=1;
+		for(int i=start+2;i<end;i++){
+			for(int j=2;j<i;j++){
+				if(i%j==0)
+				{
+					flag=0;
 					break;
 				}
+				else
+					flag=1;
 			}
-			if (b)
-				System.out.print(j + " ");
+			if(flag==1)
+			{
+				lst.add(i);
+			}
 		}
+		return lst;
 	}
-	
-	// prime pallindrom //
-	public static void primePallindrome() {
-		boolean b;
-		for (int j = 2; j <= 1000; j++) {
-			b = true;
-			for (int i = 2; i < j / 2; i++) {
-				if (j % i == 0) {
-					b = false;
-					break;
-				}
-			}
-			if (b && isPallindrome(j))
-				System.out.print(j + " ");
-		}
-	}
-
-	//  Prime anagram //
-	public static void primeAnagrams() {
-		ArrayList<Integer> ar = new ArrayList<Integer>();
-		boolean b;
-		for (int j = 2; j <= 1000; j++) {
-			b = true;
-			for (int i = 2; i < j / 2; i++) {
-				if (j % i == 0) {
-					b = false;
-					break;
-				}
-			}
-			if (b)
-				ar.add(j);
-		}
-		for (int i = 0; i < ar.size(); i++) {
-			for (int j = i + 1; j < ar.size(); j++) {
-				if (anagram(ar.get(i), ar.get(j))) {
-					System.out.println(ar.get(i) + "  " + ar.get(j));
+	//*******************************Anagram and prime number****************//
+	/**
+	 * static function that is used to add prime numbers that are
+	 * anagram 
+	 * 
+	 * @param new_lst the list of prime numbers 
+	 * @return set of prime numbers that are anagram
+	 */
+	public static Set<String> anagramPrime(List<String> new_lst){
+		Set<String> set=new HashSet<>();
+		for(int i=0;i<new_lst.size();i++){
+			for(int j=i+1;j<new_lst.size();j++){
+				if(isAnagram(new_lst.get(i), new_lst.get(j))){
+					set.add(new_lst.get(i));
+					set.add(new_lst.get(j));
+					System.out.println(new_lst.get(i)+"  "+new_lst.get(j));
 				}
 			}
 		}
+		return set;
 	}
-
-	// palindrom //
-	public static boolean isPallindrome(int n) {
-		int temp = n;
-		int sum = 0;
-		while (temp != 0) {
-			int r = temp % 10;
-			sum = sum * 10 + r;
-			temp = temp / 10;
+	//**************************palindrome and prime number***********************//
+	/**
+	 * static function that is used to add prime numbers that are 
+	 * anagram and palindrom
+	 * 
+	 * @param set the set of prime numbers that are anagram
+	 * @return set the set of prime numbers that are anagram and palindrom
+	 */
+	public static Set<String> palindromPrime(List<String> new_lst){
+		Set<String> pal_set=new HashSet<>();
+		Iterator<String> itr=new_lst.iterator();
+		while(itr.hasNext()){
+			String str=itr.next();
+			if(isPalindrom(str)){
+				pal_set.add(str);
+			}
 		}
-		if (sum == n) {
+		return pal_set;
+	}
+	//***********************palindrome****************************//
+	/**
+	 * static function that is used to check if the passed string 
+	 * is a palindrom or not 
+	 * 
+	 * @param str the string that is to be checked if it is a palindrom 
+	 * 				or not
+	 * @return true if the string is palindrom else false
+	 */
+	public static boolean isPalindrom(String str){
+		char temp;
+		int begin=0;
+		int end=str.length()-1;
+		String rev_str=str;
+		char[] array=str.toCharArray();
+		while(begin<=end){
+			temp=array[begin];
+			array[begin]=array[end];
+			array[end]=temp;
+			begin++;
+			end--;
+		}
+		String new_str=String.valueOf(array);
+		if(rev_str.equals(new_str))
 			return true;
-		}
-		return false;
+		else
+			return false;
 	}
+	
+//************************decimal to binary**************//
 
 	//decimal to binary //
 	
@@ -181,8 +183,8 @@ public class AlgorithmLogic {
 		return stringToIntArray(bin);
 
 	}
-
-	// string to binary//
+//*************************string to array*********************//
+	
 	static int[] stringToIntArray(String bin) {
 		int[] binary = new int[bin.length()];
 		for (int i = 0; i < binary.length; i++) {
@@ -190,7 +192,7 @@ public class AlgorithmLogic {
 		}
 		return binary;
 	}
-
+//***************************************decimal to binary***********************//
 	//binary to decimal //
 	public static int toDecimal(int[] binary) {
 		int dec = 0, j = 0;
@@ -205,7 +207,7 @@ public class AlgorithmLogic {
 	}
 
 	
-	
+	//********************************************print array***********************//
 	// print array//
 	public static void showArr(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {

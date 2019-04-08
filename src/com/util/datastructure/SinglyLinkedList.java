@@ -4,8 +4,10 @@ public class SinglyLinkedList<T> {
 	private Node<T> head;
 	private Node<T> tail;
 	private int size = 0;
+	@SuppressWarnings("unused")
 	private String key;
 	static String[] str = new String[100];
+	@SuppressWarnings("rawtypes")
 	static SinglyLinkedList newList = new SinglyLinkedList();
 
 	public boolean isEmpty() {
@@ -72,6 +74,7 @@ public class SinglyLinkedList<T> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public SinglyLinkedList<T> searchKey(SinglyLinkedList<T> list, String key) {
 		Node<T> current = head;
 		boolean status = false;
@@ -118,8 +121,31 @@ public class SinglyLinkedList<T> {
 				return array;
 			}
 
+			public int size() {
+				Node<T> tnode = head;
+				int len = 0;
+				while (tnode != null) {
+					len++;
+					tnode = tnode.getNextRef();
+				}
+				return len;
+			}
+
+			public String[] convArray(String[] array) {
+				Node<T> tnode = head;
+				int i = 0;
+				while (tnode != null) {
+					array[i] = String.valueOf(tnode.getValue());
+					tnode = tnode.getNextRef();
+					i++;
+				}
+				return array;
+			
+			}
+			}
+
 			
 		
 
 		
-	}
+	

@@ -12,8 +12,10 @@ public class BinarySearchFromFile {
 		int val = 0;
 		while (!word.matches("quit")) {
 			System.out.println("Enter the word to be searched for");
+			@SuppressWarnings("resource")
 			Scanner input = new Scanner(System.in);
 			word = AlgorithmLogic.readString();
+			@SuppressWarnings("resource")
 			Scanner file = new Scanner(new File("C:\\Users\\lenovo\\Desktop\\Deenu\\file.txt"));
 
 			while (file.hasNextLine()) {

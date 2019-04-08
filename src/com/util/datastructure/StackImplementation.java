@@ -28,6 +28,7 @@ public class StackImplementation <T> {
 		 * 
 		 * @return return the first value inserted or null if stack is empty
 		 */
+		@SuppressWarnings("unchecked")
 		public T pop() {
 			if (isEmpty()) {
 				System.err.println("cant pop , stack is empty");
@@ -44,6 +45,7 @@ public class StackImplementation <T> {
 		 * 
 		 * @return the last value pushed
 		 */
+		@SuppressWarnings("unchecked")
 		public T peek() {
 			return (T) stack[top];
 		}

@@ -10,10 +10,10 @@ public class Anagram {
 		System.out.println("The another String is : ");
 		String string2 = InputUtility.readString();
 
-		char[] char1 = string1.toUpperCase().toCharArray();
-		char[] char2 = string2.toUpperCase().toCharArray();
+		String str1 = string1.toUpperCase();
+		String str2 = string2.toUpperCase();
 
-		boolean isAnagarm = AlgorithmLogic.isAnagram(char1, char2);
+		boolean isAnagarm = AlgorithmLogic.isAnagram(str1, str2);
 
 		if (isAnagarm)
 			System.out.println("The two strings are anagram of each other");

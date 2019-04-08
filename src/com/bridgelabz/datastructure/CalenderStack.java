@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructure;
 import com.util.datastructure.DataStructureLogic;
-import com.util.datastructure.QueueLinkedList;
+import com.util.datastructure.Queue;
 import com.util.datastructure.StackImplementation;
 public class CalenderStack {
 		/*
@@ -19,27 +19,27 @@ public class CalenderStack {
 			System.out.println("\t\t " + months[month] + " " + year);
 			System.out.println("Sunday Monday Tuesday Wednesday Thursday Friday Saturday");
 			int dayofWeek = DataStructureLogic.day(month, 1, year);
-			StackImplementation<QueueLinkedList<Integer>> stack=new StackImplementation<>();
-			QueueLinkedList<Integer> refqueue=new QueueLinkedList<>();
+			StackImplementation<Queue<Integer>> stack=new StackImplementation<>();
+			Queue<Integer> refqueue=new Queue<>();
 			for (int i = 1; i <= days[month]; i++) {
 				refqueue.insert(i);
 				if (((i + dayofWeek) % 7 == 0 || i==days[month]) ) {
 					stack.push(refqueue);
-					refqueue=new QueueLinkedList<Integer>();
+					refqueue=new Queue<Integer>();
 					continue;
 				}
 			}	
 			for (int i = 0; i < dayofWeek; i++)
 			System.out.print("\t");
 			int size = stack.size();
-			StackImplementation<QueueLinkedList<Integer>> stackNew = new StackImplementation<>();
+			StackImplementation<Queue<Integer>> stackNew = new StackImplementation<>();
 			
 			for(int i=0; i < size; i++){
 				stackNew.push(stack.pop());
 			}
 
 			for (int i = 0; i < size; i++) {
-				QueueLinkedList<Integer> week = stackNew.pop();
+				Queue<Integer> week = stackNew.pop();
 				for (int j = 0; j < week.getSize(); j++) {
 					System.out.print(week.remove() + "\t");
 				}

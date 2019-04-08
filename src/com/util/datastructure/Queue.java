@@ -1,68 +1,68 @@
 package com.util.datastructure;
+
 public class Queue<T> {
+	
+	public Node<T> front, rear;
+	public int size = 0;
 
-	public int capacity = 20;
-	private Object queue[] = new Object[capacity];
-	private int front = -1;
-	int rear=0;
-	int size=0;
-
-	public void enque(T item) {
-		if (size == capacity) {
-			expand();
-		}
-		queue[rear++] = item;
-		size++;
+	
+	public Queue() {
+		front = null;
+		rear = null;
+		size = 0;
 	}
 
-	public int deque() {
-		if (size > 0) {
-			if (size < capacity ) {
-				shrink();
-			}
-			queue[++front] = null;
-			size--;
-		}
-		return capacity;
+	public boolean isQueueEmpty() {
+		return front == null;
 	}
 
-	public void expand() {
-		Object[] newar = new Object[capacity * 2];
-		capacity *= 2;
-		for (int i = front + 1; i < rear; i++) {
-			newar[i] = queue[i];
-		}
-		queue = newar;
-	}
-
-	public void shrink() {
-		Object newar[] = new Object[(capacity)];
-		capacity = capacity-1;
-		int j = 0;
-		for (int i = front + 1; i < rear; i++) {
-			newar[j++] = queue[i];
-		}
-		front = -1;
-		rear = size;
-		queue = newar;
-	}
-
-	public boolean isEmpty() {
-		return size == 0;
-	}
-
-	public int size() {
+	
+	public int getSize() {
 		return size;
 	}
 
-	@Override
-	public String toString() {
-		String s = "{ ";
-		for (int i = front + 1; i < rear; i++) {
-			s = s + queue[i] + ", ";
+	/**
+	 * Function to insert the specified element in the queue
+	 *
+	 * @param data
+	 *            the element to be inserted into the queue
+	 */
+	public void insert(T data) {
+		Node<T> node = new Node<T>(data, null);
+		if (rear == null) {
+			front = node;
+			rear = node;
+		} else {
+			rear.setNextRef(node);
+			rear = rear.getNextRef();
 		}
-		s = s + "}";
-		return s;
+		size++;
 	}
 
+	
+	public T remove() {
+		if (isQueueEmpty()) {
+			System.out.println("Underflow");
+		}
+		Node<T> curr = front;
+		front = curr.getNextRef();
+		if (front == null) {
+			rear = null;
+			size--;
+		}
+		return curr.getValue();
+	}
+
+	public void display() {
+		if (isQueueEmpty()) {
+			System.out.println("Queue is empty");
+			return;
+		} else {
+			Node<T> tNode = front;
+			while (tNode != null) {
+				System.out.print(tNode.getValue() + " ");
+				tNode = tNode.getNextRef();
+			}
+		}
+	}
 }

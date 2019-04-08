@@ -1,7 +1,7 @@
 package com.bridgelabz.datastructure;
 
 import com.util.datastructure.DataStructureLogic;
-import com.util.datastructure.QueueLinkedList;
+import com.util.datastructure.Queue;
 
 public class CalenderQueue {
 			/*
@@ -20,15 +20,15 @@ public class CalenderQueue {
 				System.out.println("\t\t " + months[month] + " " + year);
 				System.out.println("Sunday Monday Tuesday Wednesday Thursday Friday Saturday");
 				int dayofWeek = DataStructureLogic.day(month, 1, year);
-				QueueLinkedList<QueueLinkedList<Integer>> queue=new QueueLinkedList<QueueLinkedList<Integer>>();
-				QueueLinkedList<Integer> refqueue=new QueueLinkedList<Integer>();
+				Queue<Queue<Integer>> queue=new Queue<Queue<Integer>>();
+				Queue<Integer> refqueue=new Queue<Integer>();
 				
 				
 				for (int i = 1; i <= days[month]; i++) {
 					refqueue.insert(i);
 					if (((i + dayofWeek) % 7 == 0 || i==days[month]) ) {
 						queue.insert(refqueue);
-						refqueue=new QueueLinkedList<Integer>();
+						refqueue=new Queue<Integer>();
 						continue;
 					}
 				}	
@@ -36,7 +36,7 @@ public class CalenderQueue {
 				System.out.print("\t");
 				for(int i=0;i<=queue.getSize();i++)
 				{
-					QueueLinkedList<Integer> week=queue.remove();
+					Queue<Integer> week=queue.remove();
 					for(int j=0;j<week.getSize();j++)
 					{
 						System.out.print(week.remove()+"\t");

@@ -17,7 +17,7 @@ public class PalindromeChecker {
 		int flag = 0;
 
 		while (node.size > 1) {
-			if (node.removeFront() != node.removeRear()) {
+			if (( node).removeFront() != node.removeRear()) {
 				flag = 1;
 				break;
 			}

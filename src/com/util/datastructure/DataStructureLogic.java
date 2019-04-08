@@ -1,8 +1,8 @@
 package com.util.datastructure;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
+import com.bridgelabz.util.AlgorithmLogic;
 public class DataStructureLogic {
 //	
 	
@@ -47,21 +47,6 @@ public class DataStructureLogic {
 			}
 		}
 	
-	// ********************Banking *****************//
-
-	public static int Deposit(double amount, int curBalance) {
-		curBalance += amount;
-		return curBalance;
-	}
-
-	public static int Withdrawal(double amount, int curBalance) {
-		curBalance -= amount;
-		return curBalance;
-	}
-
-	public static void checkBalance(int curBalance) {
-		System.out.println("Your current balance is: " + curBalance);
-	}
 //*********************calender************//
 	 public static int day(int month, int day, int year) {
 	        int y = year - (14 - month) / 12;
@@ -77,119 +62,7 @@ public class DataStructureLogic {
 	        return false;
 	    }
 
-//*********************PrimeNum********************//
-  		/**
-  		 *static function to print the prime numbers for the given range
-  		 * 
-  		 * @param m the integer that represents the lower bound of the range
-  		 * @param n the integer that represents the upper bound of the range
-  		 * @return list of integers that are prime numbers between the range
-  		 */
-  		public static List<Integer> primeNumbers(int m,int n) {
-  			List<Integer> lst=new ArrayList<Integer>();
-  			int temp;
-
-  			//swapping of bounds if the given lower bound is greater than upper bound
-  			if(m>n) {
-  				temp=m;
-  				m=n;
-  				n=temp;}
-  			int flag=1;
-  			//try all the possible values from lower bound to upper bound
-  			//if the number has the factor then it must be checked within lower bound
-  			for(int i=m;i<=n;i++){
-  				for(int j=2;j<i;j++){
-  					//If the number is divisible by any of the number then 
-  					//initializing flag to zero and break
-  					//else flag is initialized to one
-  					if(i%j==0){
-  						flag=0;
-  						break;}
-  					else
-  						flag=1;}
-  				//If the number is prime which is indicated by the flag,
-  				//then adds the number into an ArrayList.
-  				if(flag==1)
-  					lst.add(i);}
-  			return lst;}
-
-  		/**
-		 * to find prime number which are anagram
-		 * @param primeList is list of integers
-		 * @return set of integers
-		 */
-	public static Set<Integer> primeAnagram(List<Integer> primeList) {
-		Set<Integer> primeAnagram = new HashSet<>();
-		for (int i = 0; i < primeList.size(); i++) {
-			for (int j = i+1; j < primeList.size(); j++) {
-				if (isAnagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
-					primeAnagram.add(primeList.get(i));
-					primeAnagram.add(primeList.get(j));
-				}
-			}
-		}
-		return primeAnagram;
-	}
-
-	/**
-	 *Static function to check if the two strings are anagram or not.
-	 * 
-	 * @param str1 the string to be checked for anagram
-	 * @param str2 the string to be checked for anagram
-	 * @return true if the strings are anagram else false
-	 */
-	public static boolean isAnagram(String word, String anagram) {
-		boolean isAnagram = false;
-		if (word != null && anagram != null && word.length() == anagram.length()) {
-			char[] arr = word.toCharArray();
-			StringBuilder temp = new StringBuilder(anagram);
-			//int wordLength = FunctionalUtility.readInteger();
-			for (char ch : arr) {
-				int index = temp.indexOf("" + ch);
-				if (index != -1) {
-					temp.deleteCharAt(index);
-				}
-			}
-			isAnagram = temp.toString().isEmpty();
-		}
-		return isAnagram;
-	}
-	/**
-	 * to find prime numbers which are anagram and store in stack
-	 * @param primeList is list of integers
-	 * @return stack of integers
-	 */
-	@SuppressWarnings("unchecked")
-	public static StackImplementation<Integer> primeAnagram1(List<Integer> primeList) {
-		Set<Integer> primeAnagram = new HashSet<>();
-		for (int i = 0; i < primeList.size(); i++) {
-			for (int j = i+1; j < primeList.size(); j++) {
-				if (isAnagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
-					primeAnagram.add(primeList.get(i));
-					primeAnagram.add(primeList.get(j));
-				}
-			}
-		}
-		return (StackImplementation<Integer>) primeAnagram;
-	}
-	/**
-	 * to find prime numbers which are anagram and store in queue
-	 * @param primeList is list of integers
-	 * @return queue of integers
-	 */
-	@SuppressWarnings("rawtypes")
-	public static QueueLinkedList primeAnagram2(List<Integer> primeList) {
-		Set<Integer> primeAnagram = new HashSet<>();
-		for (int i = 0; i < primeList.size(); i++) {
-			for (int j = i+1; j < primeList.size(); j++) {
-				if (isAnagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
-					primeAnagram.add(primeList.get(i));
-					primeAnagram.add(primeList.get(j));
-				}
-			}
-		}
-		return (QueueLinkedList) primeAnagram;
-	}
+	//******************************************************************************************************************//
 
 		/**
 		 * to find number of total number of BST that can be performed
@@ -211,15 +84,62 @@ public class DataStructureLogic {
 			int res = 1;
 		    if (k > n - k) 
 		        k = n - k;  
-			for (int i = 0; i < k; ++i) {
+			for (int i = 0; i < k; i++) {
 				res *= (n - i);
 				res /= (i + 1);
 			}
 			return res;
 		
 	}
+		
+//*******************************************************//
+/**
+ * Function that checks if the prime numbers are anagram or not
+ * 
+ * @param new_lst the list of prime numbers 
+ * @return the list of prime numbers that are anagram
+ */
+public static List<Integer> anagramPrime(List<Integer> new_lst){
+	List<Integer> listOfAnagrams=new ArrayList<Integer>();
+	for(int i=0;i<new_lst.size();i++){
+		for(int j=i+1;j<new_lst.size();j++){
+			if(AlgorithmLogic.isAnagram(String.valueOf(new_lst.get(i)),String.valueOf( new_lst.get(j)))){
+				listOfAnagrams.add(new_lst.get(i));
+				listOfAnagrams.add(new_lst.get(j));
+				System.out.println(new_lst.get(i)+"  "+new_lst.get(j));
+			}
 		}
+	}
+	return listOfAnagrams;
+}
 
+/**
+ * Function that prints the list of prime numbers that are anagram 
+ * 
+ * @param list of prime numbers that anagram 
+ */
+public static void printPrimeAndAnagram(List<List<Integer>> list)
+{
+    List<Integer> aList = new ArrayList<Integer>();
+    for (int i = 0; i < list.size(); i++) {
+        aList = list.get(i);
+        if (i == 0) {
+            System.out.println("Numbers which are prime and anagram are:"+aList.size());
+            System.out.println();
+            for (int j = 0; j < aList.size(); j++) {
+                System.out.print(aList.get(j) + " ");
+            }
+        } else {
+            System.out.println("Numbers which are prime but not anagram are:"+aList.size());
+            System.out.println();
+            for (int j = 0; j < aList.size(); j++) {
+                System.out.print(aList.get(j) + " ");
+            }
+        }
+        System.out.println();
+    }
+}
+}
 		
 
 			
