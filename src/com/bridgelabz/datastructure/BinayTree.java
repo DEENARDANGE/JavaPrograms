@@ -4,11 +4,6 @@ import com.bridgelabz.util.AlgorithmLogic;
 import com.util.datastructure.DataStructureLogic;
 
 public class BinayTree {
-	/*
-	* The main function is written to take input from the user
-	* and to find how many binary search trees can be formed
-	* from the entered number of nodes
-	*/
 	  public static void main(String[] args) { 
 	        System.out.println("Enter the number of nodes");
 	        int nodes=AlgorithmLogic.getInt();
@@ -20,7 +15,6 @@ public class BinayTree {
 	        double [] numbertimes=new double[intArr.length];
 	        for(int i=0;i<intArr.length;i++)
 	        {
-	        	//Method 1- using function of Utility class of com.bridgelabz.util package
 	        	numbertimes[i] = DataStructureLogic.binaryCount(intArr[i]);
 	        }
 	         for(int i=0;i<numbertimes.length;i++)

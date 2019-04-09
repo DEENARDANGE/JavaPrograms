@@ -1,11 +1,11 @@
 package com.bridgelabz.algorithmprograms;
 
-import com.bridgelabz.common.utils.InputUtility;
+import com.bridgelabz.util.AlgorithmLogic;
 
 public class TemperaturConversion {
 	public static void main(String[] args) {
 		System.out.println("Choose type of conversion \n 1.Fahrenheit to Celsius  \n 2.Celsius to Fahrenheit");
-		int ch = InputUtility.readIntValues();
+		int ch =  AlgorithmLogic.getInt();
 		choose(ch);
 	}
 
@@ -13,13 +13,13 @@ public class TemperaturConversion {
 		switch (ch) {
 		case 1:
 			System.out.println("Enter  Fahrenheit temperature");
-			double f = InputUtility.readDoubleValue();
+			double f =  AlgorithmLogic.getDouble();
 			double c = (f - 32) * 5 / 9;
 			System.out.println("Celsius temperature is = " + c);
 			break;
 		case 2:
 			System.out.println("Enter  Celsius temperature");
-			c = InputUtility.readDoubleValue();
+			c =  AlgorithmLogic.getDouble();
 			f = ((9 * c) / 5) + 32;
 			System.out.println("Fahrenheit temperature is = " + f);
 			break;

@@ -18,8 +18,10 @@ public class Prime2D {
 			end+=100;
 		}
 		for(int i =0; i<a1.size(); i++){
+			
 			List<Integer>  primeNumbers = a1.get(i);
 			for(int j=0; j<primeNumbers.size(); j++){
+				
 				System.out.print(primeNumbers.get(j)+" ");
 			}
 			System.out.println();

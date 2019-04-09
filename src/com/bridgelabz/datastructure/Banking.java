@@ -3,7 +3,7 @@ package com.bridgelabz.datastructure;
 import com.bridgelabz.util.AlgorithmLogic;
 import com.util.datastructure.Queue;
 
-public class Banking1 {
+public class Banking {
 		public static void main(String[] args) {
 			
 			Queue<Integer> q=new Queue<Integer>();

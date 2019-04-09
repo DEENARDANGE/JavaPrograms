@@ -1,6 +1,6 @@
 package com.bridgelabz.algorithmprograms;
 
-import com.bridgelabz.common.utils.InputUtility;
+import com.bridgelabz.util.AlgorithmLogic;
 
 public class VendingMachine {
 	static int i, total;
@@ -24,7 +24,7 @@ public class VendingMachine {
 
 	public static void main(String[] args) {
 		System.out.println("Enter amoumt");
-		int value = InputUtility.readIntValues();
+		int value = AlgorithmLogic.getInt();
 		notes(value);
 
 	}

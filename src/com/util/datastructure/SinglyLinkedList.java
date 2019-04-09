@@ -44,6 +44,7 @@ public class SinglyLinkedList<T> {
 				break;
 			}
 			System.out.println(tmp.getValue());
+			System.out.print(" ");
 			tmp = tmp.getNextRef();
 		}
 
@@ -142,7 +143,46 @@ public class SinglyLinkedList<T> {
 				return array;
 			
 			}
+
+			public int[] convertIntArray(String[] arr) {
+					int[] arrInt = new int[arr.length];
+					for (int i = 0; i < arr.length; i++) {
+						arrInt[i] = Integer.valueOf(arr[i]);
+					}
+					return arrInt;
+				}
+
+				public int[] sort(int[] array) {
+					int temp;
+					for (int i = 0; i < array.length; i++) {
+						for (int j = 0; j < array.length - 1; j++) {
+							if (array[j] > array[j + 1]) {
+								temp = array[j];
+								array[j] = array[j + 1];
+								array[j + 1] = temp;
+							}
+						}
+					}
+					return array;
+				}
+
+					public boolean search(T data) {
+						Node<T> temp = head;
+
+						while (temp.getNextRef() != null) {
+
+							if (data.equals(temp.getValue())) {
+								return true;
+							}
+							temp = temp.getNextRef();
+						}
+						return false;
+					}
+				
 			}
+
+			
+			
 
 			
 		

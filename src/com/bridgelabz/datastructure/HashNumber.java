@@ -7,19 +7,17 @@ import java.util.HashMap;
 
 import java.util.Map;
 
-import com.util.datastructure.CustomLinkedList;
+import com.util.datastructure.SinglyLinkedList;
 
 public class HashNumber {
 
 	public static void main(String[] args) throws IOException {
+		SinglyLinkedList<Integer> ds = new SinglyLinkedList<>();
+		SinglyLinkedList<Integer> ds1 = null;
 
-		// Customized LinkedList
-		CustomLinkedList<Integer> ds = new CustomLinkedList<>();
-		CustomLinkedList<Integer> ds1 = null;
-
-		Map<Integer, CustomLinkedList<Integer>> map = new HashMap<Integer, CustomLinkedList<Integer>>();
+		Map<Integer, SinglyLinkedList<Integer>> map = new HashMap<Integer, SinglyLinkedList<Integer>>();
 		for (int i = 0; i <= 10; i++) {
-			ds1 = new CustomLinkedList<>();
+			ds1 = new SinglyLinkedList<>();
 			map.put(i, ds1);
 		}
 		FileReader fr = new FileReader("C:\\\\Users\\\\lenovo\\\\Desktop\\\\Hash\\\\map.txt");
@@ -30,11 +28,11 @@ public class HashNumber {
 		while ((num = br.readLine()) != null) {
 			String number[] = num.split(delimitor);
 			for (String numb : number) {
-				ds.add(Integer.parseInt(numb));
+				ds.addElement(Integer.parseInt(numb));
 			}
 		}
 		System.out.println("The numbers in the file are:");
-		ds.printList();
+		ds.traverse();
 
 		System.out.println();
 		int len = ds.size();
@@ -52,16 +50,16 @@ public class HashNumber {
 		for (int i = 0; i < sorted.length; i++) {
 			rem = sorted[i] % 11;
 			if (map.isEmpty()) {
-				ds1.add(sorted[i]);
+				ds1.addElement(sorted[i]);
 				map.put(rem, ds1);
 			} else {
 				ds1 = map.get(rem);
 				if (ds1.size() == 0) {
-					ds1.add(sorted[i]);
+					ds1.addElement(sorted[i]);
 				} else {
 					if (!ds1.search(sorted[i])) {
 
-						ds1.add(sorted[i]);
+						ds1.addElement(sorted[i]);
 					}
 				}
 				map.put(rem, ds1);
@@ -69,9 +67,9 @@ public class HashNumber {
 		}
 
 		for (int i = 0; i < map.size(); i++) {
-			CustomLinkedList<Integer> list = map.get(i);
+			SinglyLinkedList<Integer> list = map.get(i);
 			System.out.print(i + "--> ");
-			list.printList();
+			list.traverse();
 			System.out.println();
 		}
 

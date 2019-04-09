@@ -3,10 +3,6 @@ import com.util.datastructure.DataStructureLogic;
 import com.util.datastructure.Queue;
 import com.util.datastructure.StackImplementation;
 public class CalenderStack {
-		/*
-		* The main function is to take the input from the user 
-		* and printing the calendar by using queue and stacks 
-		*/
 		public static void main(String[] args) {
 			int month = Integer.parseInt(args[0]);
 			int year = Integer.parseInt(args[1]);

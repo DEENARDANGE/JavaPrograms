@@ -31,7 +31,6 @@ public class UnorderedList {
 		 FileWriter fw=new FileWriter("C:\\Users\\lenovo\\Desktop\\Deenu\\file.txt");    
          String data = newList.toString();
 		fw.write(data);  
-         //fw.write("Test ");
          fw.close();  
 		
          System.out.println("Unordered List -" + data);

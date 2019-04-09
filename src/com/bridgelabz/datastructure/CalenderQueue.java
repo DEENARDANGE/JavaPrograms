@@ -4,10 +4,6 @@ import com.util.datastructure.DataStructureLogic;
 import com.util.datastructure.Queue;
 
 public class CalenderQueue {
-			/*
-			* The main function is to take the input from the user 
-			* and printing the calendar by using queue 
-			*/
 			public static void main(String[] args) {
 				int month = Integer.parseInt(args[0]);
 				int year = Integer.parseInt(args[1]);

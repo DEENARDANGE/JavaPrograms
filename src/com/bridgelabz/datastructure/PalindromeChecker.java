@@ -5,10 +5,8 @@ import com.util.datastructure.Node;
 public class PalindromeChecker {
 	public static void main(String[] args) {
 		Node<Character> node = new Node<Character>();
-
 		System.out.println("Enter a String: ");
 		String input = AlgorithmLogic.readString();
-
 		// adding each character to the rear of the dequeue
 		for (int i = 0; i < input.length(); i++) {
 			char character = input.charAt(i);

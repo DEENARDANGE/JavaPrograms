@@ -45,7 +45,7 @@ public class DataStructureLogic {
 			else {
 				return false;
 			}
-		}
+		} 
 	
 //*********************calender************//
 	 public static int day(int month, int day, int year) {
@@ -99,7 +99,7 @@ public class DataStructureLogic {
  * @param new_lst the list of prime numbers 
  * @return the list of prime numbers that are anagram
  */
-public static List<Integer> anagramPrime(List<Integer> new_lst){
+	public static List<Integer> anagramPrime(List<Integer> new_lst){
 	List<Integer> listOfAnagrams=new ArrayList<Integer>();
 	for(int i=0;i<new_lst.size();i++){
 		for(int j=i+1;j<new_lst.size();j++){

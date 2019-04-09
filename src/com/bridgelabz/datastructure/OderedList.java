@@ -25,14 +25,12 @@ public class OderedList {
 		list.inserstionSort(array);
 		System.out.println("Enter the key value: ");
 		String key = AlgorithmLogic.readString();
-		//  list.binarySearch(array, key);
 		com.util.datastructure.SinglyLinkedList<String> newList=list.searchKey(list, key);
 		     
 		newList.traverse();
 		 FileWriter fw=new FileWriter("C:\\Users\\lenovo\\Desktop\\order\\int.txt");    
          String data = newList.toString();
 		fw.write(data);  
-         //fw.write("Test ");
          fw.close();  
 		
          System.out.println("ordered List -" + data);

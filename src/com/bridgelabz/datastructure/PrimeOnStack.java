@@ -1,11 +1,8 @@
 package com.bridgelabz.datastructure;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import com.bridgelabz.util.AlgorithmLogic;
 import com.util.datastructure.StackImplementation;
-
 public class PrimeOnStack {
 		public static void main(String[] args) 
 		{
