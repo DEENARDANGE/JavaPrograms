@@ -73,7 +73,6 @@ public class HashNumber {
 			System.out.println();
 		}
 
-
 		br.close();
 	}
 

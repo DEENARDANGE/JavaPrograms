@@ -1,11 +1,10 @@
 package com.util.datastructure;
 
 public class Queue<T> {
-	
+
 	public Node<T> front, rear;
 	public int size = 0;
 
-	
 	public Queue() {
 		front = null;
 		rear = null;
@@ -16,7 +15,6 @@ public class Queue<T> {
 		return front == null;
 	}
 
-	
 	public int getSize() {
 		return size;
 	}
@@ -39,7 +37,6 @@ public class Queue<T> {
 		size++;
 	}
 
-	
 	public T remove() {
 		if (isQueueEmpty()) {
 			System.out.println("Underflow");

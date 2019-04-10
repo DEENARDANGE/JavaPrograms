@@ -11,7 +11,7 @@ public class Banking {
 			int cash_count=10000;
 			do{
 				System.out.println("Enter the choice");
-				System.out.println("1:Add  2:Check Cash  3:Exit");
+				System.out.println("1:Add person in queue  2:Check Cash  3:Exit");
 				int choice=AlgorithmLogic.getInt();
 				switch(choice){
 				
@@ -37,7 +37,7 @@ public class Banking {
 								}
 								break;
 						default:System.out.println("Invalid choice");
-								System.exit(0);
+							System.exit(0);
 						}
 						
 						q.remove();
@@ -47,6 +47,7 @@ public class Banking {
 				case 2: System.out.println("The amount of cash available is: "+cash_count);
 						break;
 				case 3: System.exit(0);
+					break;
 				}
 			}while(cash_count!=0);
 			System.out.println("Ran out of cash");

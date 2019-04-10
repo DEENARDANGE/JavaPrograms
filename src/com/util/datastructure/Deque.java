@@ -1,4 +1,5 @@
 package com.util.datastructure;
+
 public class Deque<E> {
 
 	public E data;

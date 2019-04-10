@@ -4,10 +4,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import com.bridgelabz.util.AlgorithmLogic;
+import com.util.datastructure.SinglyLinkedList;
 public class OderedList {
 	@SuppressWarnings({ "resource", "static-access" })
 	public static void main(String[] args) throws Exception {
-		com.util.datastructure.SinglyLinkedList<String> list = new com.util.datastructure.SinglyLinkedList<String>();
+		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
 		File file = new File("C:\\Users\\lenovo\\Desktop\\order\\int.txt");
 		BufferedReader bufferreader = new BufferedReader(new FileReader(file));
 		String[] array = new String[50];
@@ -25,7 +26,7 @@ public class OderedList {
 		list.inserstionSort(array);
 		System.out.println("Enter the key value: ");
 		String key = AlgorithmLogic.readString();
-		com.util.datastructure.SinglyLinkedList<String> newList=list.searchKey(list, key);
+		SinglyLinkedList<String> newList=list.searchKey(list, key);
 		     
 		newList.traverse();
 		 FileWriter fw=new FileWriter("C:\\Users\\lenovo\\Desktop\\order\\int.txt");    

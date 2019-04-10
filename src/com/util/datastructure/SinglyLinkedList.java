@@ -43,7 +43,7 @@ public class SinglyLinkedList<T> {
 			if (tmp == null) {
 				break;
 			}
-			System.out.println(tmp.getValue());
+			System.out.print(tmp.getValue());
 			System.out.print(" ");
 			tmp = tmp.getNextRef();
 		}
@@ -94,98 +94,87 @@ public class SinglyLinkedList<T> {
 		}
 		if (status) {
 			System.out.println("Element is present in the list ");
-			
+
 		} else {
 			System.out.println("Element is not present in the list ");
 			newList.addElement(key);
 		}
 
-		return (SinglyLinkedList<T>)newList;
+		return (SinglyLinkedList<T>) newList;
 	}
 
-		
-
-			public static <T extends Comparable<T>> T[] inserstionSort(T[] array) {
-				for (int i = 1; i < array.length; i++) {
-					for (int j = i; j > 0; j--) {
-						if (array[j].compareTo(array[j - 1]) < 0) {
-							T temp = array[j];
-							array[j] = array[j - 1];
-							array[j - 1] = temp;
-						} else
-							break;
-					}
-				}
-				for (int k = 0; k < array.length; k++) {
-					System.out.println(array[k]);
-				}
-				return array;
+	public static <T extends Comparable<T>> T[] inserstionSort(T[] array) {
+		for (int i = 1; i < array.length; i++) {
+			for (int j = i; j > 0; j--) {
+				if (array[j].compareTo(array[j - 1]) < 0) {
+					T temp = array[j];
+					array[j] = array[j - 1];
+					array[j - 1] = temp;
+				} else
+					break;
 			}
+		}
+		for (int k = 0; k < array.length; k++) {
+			System.out.println(array[k]);
+		}
+		return array;
+	}
 
-			public int size() {
-				Node<T> tnode = head;
-				int len = 0;
-				while (tnode != null) {
-					len++;
-					tnode = tnode.getNextRef();
+	public int size() {
+		Node<T> tnode = head;
+		int len = 0;
+		while (tnode != null) {
+			len++;
+			tnode = tnode.getNextRef();
+		}
+		return len;
+	}
+
+	public String[] convArray(String[] array) {
+		Node<T> tnode = head;
+		int i = 0;
+		while (tnode != null) {
+			array[i] = String.valueOf(tnode.getValue());
+			tnode = tnode.getNextRef();
+			i++;
+		}
+		return array;
+
+	}
+
+	public int[] convertIntArray(String[] arr) {
+		int[] arrInt = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			arrInt[i] = Integer.valueOf(arr[i]);
+		}
+		return arrInt;
+	}
+
+	public int[] sort(int[] array) {
+		int temp;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length - 1; j++) {
+				if (array[j] > array[j + 1]) {
+					temp = array[j];
+					array[j] = array[j + 1];
+					array[j + 1] = temp;
 				}
-				return len;
 			}
+		}
+		return array;
+	}
 
-			public String[] convArray(String[] array) {
-				Node<T> tnode = head;
-				int i = 0;
-				while (tnode != null) {
-					array[i] = String.valueOf(tnode.getValue());
-					tnode = tnode.getNextRef();
-					i++;
-				}
-				return array;
-			
+	public boolean search(T data) {
+		Node<T> temp = head;
+
+		while (temp.getNextRef() != null) {
+
+			if (data.equals(temp.getValue())) {
+				return true;
 			}
+			temp = temp.getNextRef();
+		}
+		return false;
+	}
 
-			public int[] convertIntArray(String[] arr) {
-					int[] arrInt = new int[arr.length];
-					for (int i = 0; i < arr.length; i++) {
-						arrInt[i] = Integer.valueOf(arr[i]);
-					}
-					return arrInt;
-				}
-
-				public int[] sort(int[] array) {
-					int temp;
-					for (int i = 0; i < array.length; i++) {
-						for (int j = 0; j < array.length - 1; j++) {
-							if (array[j] > array[j + 1]) {
-								temp = array[j];
-								array[j] = array[j + 1];
-								array[j + 1] = temp;
-							}
-						}
-					}
-					return array;
-				}
-
-					public boolean search(T data) {
-						Node<T> temp = head;
-
-						while (temp.getNextRef() != null) {
-
-							if (data.equals(temp.getValue())) {
-								return true;
-							}
-							temp = temp.getNextRef();
-						}
-						return false;
-					}
-				
-			}
-
-			
-			
-
-			
-		
-
-		
-	
+}

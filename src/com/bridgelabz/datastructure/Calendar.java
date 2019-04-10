@@ -4,7 +4,7 @@ public class Calendar {
     public static void main(String[] args) {
         int month = Integer.parseInt(args[0]);   
         int year = Integer.parseInt(args[1]); 
-        String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        String[] months = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         if (month == 2 && DataStructureLogic.isLeapYear(year))
         	days[month] = 29;
