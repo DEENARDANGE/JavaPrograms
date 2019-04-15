@@ -1,0 +1,12 @@
+{
+"name":"Deenar",
+"Age":"21",
+"info":[{
+"adress":{
+"city":"savadtti",
+"state":"as",
+"Pincode":12345
+},
+"PhoneNo":{
+"type":"home",
+"phNo":1234567890}}]}

@@ -1,0 +1,16 @@
+[
+    {
+        "inventory": {
+            "name": "Basmati",
+            "price": 50.0,
+            "weight": 5.0
+        }
+    },
+    {
+        "inventory": {
+            "name": "kohinoor",
+            "price": 500.0,
+            "weight": 6.0
+        }
+    }
+]

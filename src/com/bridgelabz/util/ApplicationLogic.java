@@ -5,10 +5,14 @@ import java.util.regex.Pattern;
 
 public class ApplicationLogic {
 	public static String replace(String first, String fullName, String phoneNum, String date, String line) {
-		final String REGEX_NAME = "<{2}+\\w+>{2}";
-		final String REGEX_FULL_NAME = "<{2}+\\w+ +\\w+>{2}";
-		final String REGEX_CONTACT = "x{10}";
-		final String REGEX_DATE = "<{2}+\\d{2}+/+\\d{2}+/+\\d{4}+>{2}";
+	    final String REGEX_NAME =  "<<name>>";
+	    //"<{2}?\\w+>{2}";
+		final String REGEX_FULL_NAME ="<<full name>>" ;
+				// "<{2}+\\w+ +\\w+>{2}";
+		final String REGEX_CONTACT =" xxxxxxxxxx";
+				//"";
+		final String REGEX_DATE = "<<01/01/2016>>";
+				//"<{2}+\\d{2}+/+\\d{2}+/+\\d{4}+>{2}";
 		Pattern p1 = Pattern.compile(REGEX_NAME);
 		Matcher m1 = p1.matcher(line);
 		line = m1.replaceAll(first);

@@ -1,0 +1,5 @@
+{"Doctor":[
+{"Name ": "John","Id":01,"Specialization":"eye","Availability":"10am - 5pm"},
+{"Name ": "Raj","Id":02,"Specialization":"Heart","Availability":"11am - 6pm"},
+{"Name ": "xyz","Id":03,"Specialization":"Bone","Availability":"1pm - 5pm"}
+]}
