@@ -1,30 +1,28 @@
 package com.bridgelabz.inventory.data.main;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import org.json.simple.parser.ParseException;
+import java.util.Scanner;
+
 import com.bridgelabz.inventory.data.impl.InventoryImpl;
 import com.bridgelabz.inventory.data1.InventoryNameData;
 
-public class JSONInventory {
-	    @SuppressWarnings({ "static-access", "unused" })
-		public static void main(String[] args) throws FileNotFoundException, IOException, ParseException
-	    {
-	      
-	        InventoryNameData InventoryName = new InventoryImpl();
-	        InventoryImpl invImpl=new InventoryImpl();
-	        invImpl.fileRead();
 
-	       String name = null;
-	       double price = 0;
-	       double weight = 0;
-	        	
-	        	System.out.println("addition of Inventory ");
-	        		invImpl.add(name, price, weight);
-	        		System.out.println("\n remove of Inventory");
-	        		invImpl.remove(name, price, weight); 
-	        		System.out.println("\n Calculating the price");
-	        		invImpl.calculate(name, price, weight); 
-	        	
-	        	}
-	    
+public class JSONInventory {
+	public static void main(String[] args) {
+
+		InventoryNameData inventaryImp = new InventoryImpl();
+		{
+			Scanner sc = new Scanner(System.in);
+			inventaryImp.fileRead();
+			System.out.println("enter name");
+			String name=sc.next();
+			System.out.println("enter weight");
+			double  weight=sc.nextDouble();
+			System.out.println("enter price");
+			double price=sc.nextDouble();
+			inventaryImp.add(name, weight, price);
+			inventaryImp.calculateInventory();
+			inventaryImp.writeFile();
+			inventaryImp.remove(name);
+		}
+
+	}
 }
