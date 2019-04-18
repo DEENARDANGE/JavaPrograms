@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.bridgelabz.inventory.model.Inventory;
 import com.bridgelabz.stock.interf.StockInterface;
 import com.bridgelabz.stock.model.Stock;
 import com.google.gson.Gson;
@@ -23,7 +22,6 @@ public class StockImpl implements StockInterface {
 
 	JSONObject jobject = new JSONObject();
 
-
 	@Override
 	public void fileRead() {
 		JSONParser parser = new JSONParser();
@@ -32,7 +30,7 @@ public class StockImpl implements StockInterface {
 			try {
 				jsonArray = (JSONArray) parser.parse(new FileReader(
 						"C:\\Users\\lenovo\\eclipse-workspace\\FuctionalPgm\\src\\com\\bridgelabz\\stock\\main\\Stock.json"));
-				System.out.println( jsonArray);
+				System.out.println(jsonArray);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -46,23 +44,18 @@ public class StockImpl implements StockInterface {
 
 				jobject = (JSONObject) obj;
 				String name = (String) jobject.get("name");
-				double price = ((Double) jobject.get("price")).doubleValue();
-				
-				int noShare=(int) jobject.get("noStock");
+				double price = (double) jobject.get("price");
+				long noShare = (long) jobject.get("noShare");
 				stock1.setNoShare(noShare);
 				stock1.setName(name);
 				stock1.setPrice(price);
 				stocks.add(stock1);
-				System.out.println(stock1.toString());
+				// System.out.println(">>>>>"+stock1.toString());
+				// System.out.println("====>>"+stocks);
+				System.out.println(stocks.toString());
 
 			}
-		}		
-	}
-
-	@Override
-	public double calculate(double price) {
-		// TODO Auto-generated method stub
-		return 0;
+		}
 	}
 
 	@Override
@@ -70,7 +63,7 @@ public class StockImpl implements StockInterface {
 		Gson gson = new Gson();
 		String json = gson.toJson(stocks);
 		System.out.println(json);
-		System.out.println("===>" + stocks);
+		// System.out.println("===>" + stocks);
 
 		try (FileWriter file = new FileWriter(
 				"C:\\\\Users\\\\lenovo\\\\eclipse-workspace\\\\FuctionalPgm\\\\src\\\\com\\\\bridgelabz\\\\stock\\\\main\\\\Stock.json")) {
@@ -78,24 +71,33 @@ public class StockImpl implements StockInterface {
 			System.out.println("SuccessFully copied to JSON  Object to File......");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	@Override
-	public void add(String name, int noShare, double price) {
+	public void add(String name, long noShare, double price) {
 		Stock stock1 = new Stock();
 		stock1.setName(name);
 		stock1.setPrice(price);
 		stock1.setNoShare(noShare);
 		stocks.add(stock1);
-		stocks.forEach(inventory1 -> System.out.println(inventory1.toString()));
-		
 	}
 
 	@Override
-	public void calculateStock() {
-		// TODO Auto-generated method stub
-		
+	public double calculate(double price) {
+		stocks.forEach(stock -> System.out
+				.println("Total price of " + stock.getName() + " is " + (stock.getPrice() * stock.getNoShare())));
+		return price;
+
+	}
+
+	@Override
+	public void totalStockValue() {
+		double sum = 0;
+		for (Stock stock : stocks) {
+			sum = sum + (stock.getPrice() * stock.getNoShare());
+		}
+		System.out.println("Total gain of ShareHolder=" + sum);
 	}
 
 }

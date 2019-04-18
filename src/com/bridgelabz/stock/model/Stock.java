@@ -2,7 +2,7 @@ package com.bridgelabz.stock.model;
 
 public class Stock {
 	private String name;
-	private int noShare;
+	private long noShare;
 	private double price;
 	public String getName() {
 		return name;
@@ -10,10 +10,10 @@ public class Stock {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNoShare() {
+	public long getNoShare() {
 		return noShare;
 	}
-	public void setNoShare(int noShare) {
+	public void setNoShare(long noShare) {
 		this.noShare = noShare;
 	}
 	public double getPrice() {
@@ -23,5 +23,11 @@ public class Stock {
 		this.price = price;
 	}
 	
+	 @Override
+	    public String toString() {
+	        return   "name  : "+name+"\n"
+	                +"noShare: "+noShare+"\n"
+	                +"price : "+price+"\n" ;
+	    }
 	
 }

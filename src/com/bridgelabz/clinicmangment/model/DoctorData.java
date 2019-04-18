@@ -2,19 +2,23 @@ package com.bridgelabz.clinicmangment.model;
 
 import java.time.LocalDateTime;
 
-public class Doctor {
-	private int id;
+public class DoctorData {
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	private String name;
 	private String spacilization;
 	private LocalDateTime avaibality;
 
-	public int getId() {
-		return id;
-	}
+	
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public String getName() {
 		return name;
@@ -32,7 +36,7 @@ public class Doctor {
 		this.spacilization = spacilization;
 	}
 
-	public LocalDateTime getAvaibality() {
+	public LocalDateTime getAvailability() {
 		return avaibality;
 	}
 

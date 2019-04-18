@@ -14,11 +14,12 @@ public class StockManagement {
 			System.out.println("enter name");
 			String name=sc.next();
 			System.out.println("enter noShare");
-			int  noShare=sc.nextInt();
+			long  noShare=sc.nextInt();
 			System.out.println("enter price");
 			double price=sc.nextDouble();
 			stockImp.add( name,  noShare ,  price);
-			stockImp.calculateStock();
+			stockImp.calculate(price);
+			stockImp.totalStockValue();
 			stockImp.writeFile();
 			//stockImp.remove(name);
 		}

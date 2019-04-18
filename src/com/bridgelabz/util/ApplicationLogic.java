@@ -9,7 +9,7 @@ public class ApplicationLogic {
 	    //"<{2}?\\w+>{2}";
 		final String REGEX_FULL_NAME ="<<full name>>" ;
 				// "<{2}+\\w+ +\\w+>{2}";
-		final String REGEX_CONTACT =" xxxxxxxxxx";
+		final String REGEX_CONTACT ="xxxxxxxxxx";
 				//"";
 		final String REGEX_DATE = "<<01/01/2016>>";
 				//"<{2}+\\d{2}+/+\\d{2}+/+\\d{4}+>{2}";

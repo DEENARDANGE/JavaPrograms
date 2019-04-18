@@ -1,5 +1,5 @@
 [
-{"Name ": "John","Id":1,"Specialization":"eye","Availability":"10am - 5pm"},
-{"Name ": "Raj","Id":2,"Specialization":"Heart","Availability":"11am - 6pm"},
-{"Name ": "xyz","Id":3,"Specialization":"Bone","Availability":"1pm - 5pm"}
+{"name ": "John","id":1,"specialization":"eye","availability":"10am - 5pm"},
+{"name ": "Raj","id":2,"specialization":"Heart","availability":"11am - 6pm"},
+{"name ": "xyz","id":3,"specialization":"Bone","availability":"1pm - 5pm"}
 ]
