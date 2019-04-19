@@ -1,6 +1,6 @@
 [
-{"Name":"Nidi","Id":1,"MobileNo":1234567890,"age":23},
-{"Name":"kavya","Id":2,"MobileNo":1987654321,"age":25},
-{"Name":"ash","Id":3,"MobileNo":3456787654,"age":20},
-{"Name":"abc","Id":4,"MobileNo":99876567890,"age":30}
+{"name":"Nidi","id":1,"mobileNo":1234567890,"age":23},
+{"name":"kavya","id":2,"mobileNo":1987654321,"age":25},
+{"name":"ash","id":3,"mobileNo":3456787654,"age":20},
+{"name":"abc","id":4,"mobileNo":99876567890,"age":30}
 ]

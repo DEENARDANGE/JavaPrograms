@@ -3,18 +3,21 @@ package com.bridgelabz.clinicmangment.data.main;
 import java.time.LocalDateTime;
 
 import com.bridgelabz.clinicmangment.data.DoctorDataInterf;
+import com.bridgelabz.clinicmangment.data.PatientDataInterf;
 import com.bridgelabz.clinicmangment.data.impl.DoctorDataImpl;
+import com.bridgelabz.clinicmangment.data.impl.PatientDataImpl;
 
 public class ClinicManagement {
 
 	public static void main(String args[]) {
-		DoctorDataInterf data = new DoctorDataImpl();
-		data.fileRead();
+		DoctorDataInterf dataDoctor = new DoctorDataImpl();
+		PatientDataInterf dataPatient = new PatientDataImpl();
+		dataDoctor.fileReadDoctor();
 		String name = null;
-		int id = 0;
+		Long id = null ;
 		LocalDateTime availability = null;
 		String specilization = null;
-		data.add(name, id, specilization, availability);
+		dataDoctor.addDoctor(name, id, specilization, availability);
+		dataPatient.fileReadPatient();
 	}
-
 }

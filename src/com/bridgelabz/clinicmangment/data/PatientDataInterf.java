@@ -1,12 +1,9 @@
 package com.bridgelabz.clinicmangment.data;
-
-import java.util.List;
-
-import com.bridgelabz.clinicmangment.model.PatientData;
-
 public interface PatientDataInterf {
-	public void addPatient(PatientData patient);
+	public void fileReadPatient();
+	public void addPatient(String name, int id, Long mobileNo, Long age);
+	public void searchPatient();
+	public void writePatient();
 
-	public List<PatientData> getPatient();
 
 }

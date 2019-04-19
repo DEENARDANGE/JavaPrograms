@@ -2,40 +2,39 @@ package com.bridgelabz.clinicmangment.model;
 
 public class PatientData {
 	private String name;
-	private int id;
-	private String mobileNo;
-	private int age;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	private Long id;
+	private Long mobileNo;
+	private Long age;
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getMobileNo() {
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getMobileNo() {
 		return mobileNo;
 	}
-
-	public void setMobileNo(String mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-
-	public int getAge() {
+	public Long getAge() {
 		return age;
 	}
-
-	public void setAge(int age) {
+	public void setAge(Long age) {
 		this.age = age;
 	}
+	
+	@Override
+	public String toString() {
+		return "name  : " + name + "\n" + "id: " + id + "\n" + "mobileNo : " + mobileNo + "\n"
+				+ "age : " + age + "\n";
 
+	}
+	
 }
